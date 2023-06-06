@@ -1,0 +1,38 @@
+
+/* CUSTOM LAYOUT */
+.section-container {
+    max-width: {{ settings.page_container }}px;
+    margin: 0 auto;
+}
+.page-full {
+    max-width: 100%;
+    width: 100%;
+}
+
+/* BASE CSS */
+.block{display: block;}
+.flex{display: flex;}
+.hidden{display: flex;}
+
+/* Image */
+.image-full {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Breakpoint */
+.mobile {
+    display: block;
+}
+.desktop {
+    display: none;
+}
+@media (min-width: 1024px) {
+    .mobile {
+        display: none;
+    }
+    .desktop {
+        display: block;
+    }
+}
