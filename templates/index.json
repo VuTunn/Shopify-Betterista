@@ -1,6 +1,6 @@
 {
   "sections": {
-    "4f736f79-4036-42df-9ca5-7f18a8f0113f": {
+    "3fc1df73-557b-4e9e-8c9c-91324f3e5e93": {
       "type": "Main-banner",
       "settings": {
         "full_width": true,
@@ -12,25 +12,25 @@
         "bg_color": "#fff"
       }
     },
-    "8ed9bc00-eee8-405e-98e5-39c99cf056a6": {
+    "5876f72c-60c2-4356-92a9-f6fef0879688": {
       "type": "product-suggestion",
       "blocks": {
-        "4d20724c-4214-4218-8a0d-133812382f54": {
-          "type": "block",
-          "settings": {
-            "product": "harper-pants"
-          }
-        },
-        "63ca48f1-4a55-41c0-9a31-76eda5953f02": {
+        "1fd6657b-4e57-463d-8beb-1f86887d6df6": {
           "type": "block",
           "settings": {
             "product": "august-dress"
           }
+        },
+        "e9c7bb08-8236-44ad-8af5-35f56d75eb83": {
+          "type": "block",
+          "settings": {
+            "product": "harper-pants"
+          }
         }
       },
       "block_order": [
-        "4d20724c-4214-4218-8a0d-133812382f54",
-        "63ca48f1-4a55-41c0-9a31-76eda5953f02"
+        "1fd6657b-4e57-463d-8beb-1f86887d6df6",
+        "e9c7bb08-8236-44ad-8af5-35f56d75eb83"
       ],
       "settings": {
         "full_width": false,
@@ -38,7 +38,7 @@
         "slider_perMove": 1,
         "slider_perPage_mb": "2",
         "slider_pagination": false,
-        "slider_arrow": false,
+        "slider_arrow": true,
         "slider_drag": false,
         "title": "New Arrivals",
         "subtitle": "",
@@ -47,7 +47,7 @@
     }
   },
   "order": [
-    "4f736f79-4036-42df-9ca5-7f18a8f0113f",
-    "8ed9bc00-eee8-405e-98e5-39c99cf056a6"
+    "3fc1df73-557b-4e9e-8c9c-91324f3e5e93",
+    "5876f72c-60c2-4356-92a9-f6fef0879688"
   ]
 }

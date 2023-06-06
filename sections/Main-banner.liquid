@@ -1,13 +1,58 @@
 {% style %}
-    #shopify-section-{{ section.id }}.main-banner .section-inner {
+    /* SETTINGS */
+    #shopify-section-{{ section.id }}.main-banner .main-banner__content {
         background-color: {{ section.settings.bg_color }};
     }
+
+    /* CUSTOM */
+    .main-banner__content {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 16px;
+        border-radius: 24px;
+        padding: 16px;
+    }
+    .main-banner__content h1 {
+        margin: 0 0 16px 0;
+    }
+    .main-banner__content p {
+        margin: 0 0 16px 0;
+    }
+    .main-banner__content a {
+        margin: 0;
+    }
+    @media (min-width: 768px) {
+        .main-banner__content {
+            left: 24px;
+        }
+        .main-banner__content h1 {
+            margin: 0 0 24px 0;
+        }
+        .main-banner__content p {
+            margin: 0 0 24px 0;
+        }
+        .main-banner__content a {
+            margin: 0;
+        }
+    }
+    @media (min-width: 1024px) {
+        .main-banner__content {
+            left: 32px;
+        }
+    }
+    @media (min-width: 1440px) {
+        .main-banner__content {
+            left: 40px;
+        }
+    }
+    
 {% endstyle %}
 
 <container class="{% if section.settings.full_width %}section-container{% else %}page-full{% endif %} {{ section.settings.custom_layout }}">
-    <div class="section-inner flex">
+    <div class="section-inner flex relative">
         <div class="main-banner__content">
-            <div class="main-banner__content-inner">
+            <div class="main-banner__content-inner flex flex-col">
                 {% if section.settings.title != blank %}
                     <h1>{{ section.settings.title }}</h1>
                 {% endif %}
@@ -106,7 +151,7 @@
                 {
                     "type": "color",
                     "id": "bg_color",
-                    "label": "Background Color",
+                    "label": "Background Content Color",
                     "default": "#fff"
                 }
         ],
