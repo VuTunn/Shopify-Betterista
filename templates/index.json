@@ -1,29 +1,53 @@
 {
   "sections": {
-    "e53c23a5-4e55-4832-8818-72f416d310c9": {
+    "4f736f79-4036-42df-9ca5-7f18a8f0113f": {
       "type": "Main-banner",
       "settings": {
         "full_width": true,
-        "title": "Title",
-        "description": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.<\/p>",
-        "btn_url": "shopify:\/\/collections",
-        "btn_label": "Button",
-        "bg_color": "#ffffff"
+        "img_des": "shopify:\/\/shop_images\/banner.png",
+        "title": "Shopping Guide",
+        "description": "<p>Joy the season to the fullest, share happiness with your loved one. <\/p>",
+        "btn_url": "shopify:\/\/collections\/all",
+        "btn_label": "shop now",
+        "bg_color": "#fff"
       }
     },
-    "f3ea234d-c3dd-4a84-971b-46b5175008bf": {
+    "8ed9bc00-eee8-405e-98e5-39c99cf056a6": {
       "type": "product-suggestion",
+      "blocks": {
+        "4d20724c-4214-4218-8a0d-133812382f54": {
+          "type": "block",
+          "settings": {
+            "product": "harper-pants"
+          }
+        },
+        "63ca48f1-4a55-41c0-9a31-76eda5953f02": {
+          "type": "block",
+          "settings": {
+            "product": "august-dress"
+          }
+        }
+      },
+      "block_order": [
+        "4d20724c-4214-4218-8a0d-133812382f54",
+        "63ca48f1-4a55-41c0-9a31-76eda5953f02"
+      ],
       "settings": {
         "full_width": false,
-        "custom_layout": "slider",
-        "title": "Title",
+        "slider_perPage_des": 4,
+        "slider_perMove": 1,
+        "slider_perPage_mb": "2",
+        "slider_pagination": false,
+        "slider_arrow": false,
+        "slider_drag": false,
+        "title": "New Arrivals",
         "subtitle": "",
-        "description": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.<\/p>"
+        "description": ""
       }
     }
   },
   "order": [
-    "e53c23a5-4e55-4832-8818-72f416d310c9",
-    "f3ea234d-c3dd-4a84-971b-46b5175008bf"
+    "4f736f79-4036-42df-9ca5-7f18a8f0113f",
+    "8ed9bc00-eee8-405e-98e5-39c99cf056a6"
   ]
 }
