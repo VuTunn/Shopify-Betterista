@@ -14,6 +14,16 @@
 .flex{display: flex;}
 .hidden{display: flex;}
 
+.absolute{position: absolute;}
+.relative{position: relative;}
+.fixed{position: fixed;}
+.sticky{position: sticky;}
+
+.padding-base{padding: 0 16px;}
+@media (min-width: 768px){.padding-base{padding: 0 24px;}}
+@media (min-width: 1024px){.padding-base{padding: 0 32px;}}
+@media (min-width: 1440px){.padding-base{padding: 0 40px;}}
+
 /* Image */
 .image-full {
     width: 100%;
@@ -27,6 +37,14 @@
 }
 .desktop {
     display: none;
+}
+@media (min-width: 768px) {
+    .mobile {
+        display: none;
+    }
+    .desktop {
+        display: none;
+    }
 }
 @media (min-width: 1024px) {
     .mobile {
