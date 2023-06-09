@@ -1,0 +1,26 @@
+{
+  "name": "shopifyproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "dependencies": {
+    "postcss": "^8.4.24",
+    "postcss-cli": "^10.1.0",
+    "tailwindcss": "^3.3.2"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.3",
+    "@tailwindcss/line-clamp": "^0.4.2",
+    "@tailwindcss/typography": "^0.5.8",
+    "autoprefixer": "^10.4.13",
+    "postcss-import": "^15.0.1"
+  },
+  "scripts": {
+    "build": "NODE_ENV=production npx tailwindcss --postcss -i ./tailwind-source.css -o ./assets/tailwindoutput.css --minify",
+    "watch": "NODE_ENV=development npx tailwindcss --postcss -i ./tailwind-source.css -o ./assets/tailwindoutput.css --watch --verbose",
+    "dev": "NODE_ENV=development npx tailwindcss --postcss -i ./tailwind-source.css -o ./assets/tailwindoutput.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
