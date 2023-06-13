@@ -1,7 +1,7 @@
 {
   "current": {
-    "page_container": 1600,
-    "logo_width": 90,
+    "logo": "shopify:\/\/shop_images\/67819425_2370257749897265_1897770907926003712_n_1-removebg-preview_1.png",
+    "logo_width": 180,
     "colors_solid_button_labels": "#ffffff",
     "colors_accent_1": "#121212",
     "gradient_accent_1": "",
@@ -13,11 +13,11 @@
     "gradient_background_1": "",
     "colors_background_2": "#f3f3f3",
     "gradient_background_2": "",
-    "type_header_font": "assistant_n4",
+    "type_header_font": "montserrat_n4",
     "heading_scale": 100,
-    "type_body_font": "assistant_n4",
+    "type_body_font": "montserrat_n4",
     "body_scale": 100,
-    "page_width": 1200,
+    "page_width": 1400,
     "spacing_sections": 0,
     "spacing_grid_horizontal": 8,
     "spacing_grid_vertical": 8,
@@ -123,10 +123,10 @@
     "predictive_search_show_vendor": false,
     "predictive_search_show_price": false,
     "currency_code_enabled": true,
-    "cart_type": "notification",
+    "cart_type": "drawer",
     "show_vendor": false,
-    "show_cart_note": false,
-    "cart_drawer_collection": "",
+    "show_cart_note": true,
+    "cart_drawer_collection": "dress",
     "sections": {
       "main-password-header": {
         "type": "main-password-header",
@@ -143,7 +143,15 @@
     },
     "content_for_index": [
 
-    ]
+    ],
+    "blocks": {
+      "4571859552318407796": {
+        "type": "shopify:\/\/apps\/glo-color-swatch-variant-image\/blocks\/app-embed-block\/4394f710-096c-4021-bbde-8ebb26057c11",
+        "disabled": false,
+        "settings": {
+        }
+      }
+    }
   },
   "presets": {
     "Default": {
