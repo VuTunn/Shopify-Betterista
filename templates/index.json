@@ -9,8 +9,7 @@
         "title": "Express your fun",
         "description": "<p>Founded in 2015 with the desire to bring happy and youthful energy to girls, Betterista focuses on designing basic items and blowing in a sweet breeze<\/p>",
         "btn_url": "shopify:\/\/collections\/all",
-        "btn_label": "Shop Now",
-        "bg_color": "#ffffff"
+        "btn_label": "Shop Now"
       }
     },
     "81cbb258-4520-48f3-892d-18ffc5f127e9": {
@@ -25,13 +24,13 @@
         "template--19375695757620__81cbb258-4520-48f3-892d-18ffc5f127e9-16866257707af4317f-1": {
           "type": "featured_collection",
           "settings": {
-            "collection": ""
+            "collection": "skirt"
           }
         },
         "template--19375695757620__81cbb258-4520-48f3-892d-18ffc5f127e9-16866257707af4317f-2": {
           "type": "featured_collection",
           "settings": {
-            "collection": ""
+            "collection": "dress"
           }
         }
       },
