@@ -5,10 +5,10 @@
     "announcement-bar": {
       "type": "announcement-bar",
       "blocks": {
-        "announcement-bar-0": {
+        "8e1d4460-2bc7-420a-9bdf-90a1efcb75c3": {
           "type": "announcement",
           "settings": {
-            "text": "Welcome to our store",
+            "text": "We want to give you a \"value for money\" feeling when you buy!",
             "text_alignment": "center",
             "color_scheme": "background-1",
             "link": ""
@@ -16,7 +16,7 @@
         }
       },
       "block_order": [
-        "announcement-bar-0"
+        "8e1d4460-2bc7-420a-9bdf-90a1efcb75c3"
       ],
       "settings": {
       }

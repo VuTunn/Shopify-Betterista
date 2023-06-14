@@ -1,7 +1,14 @@
 {% style %}
-    /* SETTINGS */
-    #shopify-section-{{ section.id }}.main-banner .main-banner__content {
-        background-color: {{ section.settings.bg_color }};
+    .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+        padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    }
+
+    @media screen and (min-width: 750px) {
+        .section-{{ section.id }}-padding {
+            padding-top: {{ section.settings.padding_top }}px;
+            padding-bottom: {{ section.settings.padding_bottom }}px;
+        }
     }
 
     /* CUSTOM */
@@ -49,35 +56,37 @@
     
 {% endstyle %}
 
-<container class="{% if section.settings.full_width %}section-container{% else %}page-full{% endif %} {{ section.settings.custom_layout }}">
-    <div class="section-inner flex relative">
-        <div class="main-banner__content">
-            <div class="main-banner__content-inner flex flex-col">
+<container class="tw-block {% if section.settings.full_width %}page-full{% else %}page-width{% endif %} {{ section.settings.custom_layout }} section-{{ section.id }}-padding">
+    <div class="section-inner tw-flex tal:tw-flex-row tw-flex-col-reverse">
+        <div class="main-banner__content tal:tw-mr-below-40px tal:tw-w-1/2 tal:tw-flex tal:tw-items-center tw-relative">
+            <div class="main-banner__content-inner tal:tw-p-32px tal:tw-rounded-3xl tw-bg-white tw-p-24px tw-shadow-normal tw-rounded-b-3xl tw-overflow-hidden">
                 {% if section.settings.title != blank %}
-                    <h1>{{ section.settings.title }}</h1>
+                    <h1 class="section-title tw-mb-16px text-stroke-black tw-text-yellow">{{ section.settings.title }}</h1>
                 {% endif %}
                 {% if section.settings.description != blank %}
                     {{ section.settings.description }}
                 {% endif %}
                 {% if section.settings.btn_url != blank %}
-                    <a href="{{ section.settings.btn_url }}">{{ section.settings.btn_label }}</a>
+                    <a 
+                        class="cursive tal:tw-py-8px tal:tw-px-16px tw-mt-16px tw-p-8px tw-inline-block tw-border-solid tw-border-black tw-border tw-rounded-3xl tw-transition-colors tw-duration-500 tw-bg-yellow tw-text-black hover:tw-text-white hover:tw-bg-black" 
+                        href="{{ section.settings.btn_url }}">{{ section.settings.btn_label }}</a>
                 {% endif %}
             </div>
         </div>
-        <div class="main-banner__media">
-            <div class="main-banner__media-inner">
+        <div class="main-banner__media tw-w-full">
+            <div class="main-banner__media-inner tal:tw-rounded-3xl tw-rounded-t-3xl tw-overflow-hidden">
                 {% if section.settings.img_des != blank %}
                     <img 
                         src="{{ section.settings.img_des | img_url: '1920x1920' }}" 
                         alt="{{ section.settings.img_des.alt }}"
-                        class="image-full desktop"
+                        class="image-full md:tw-block tal:tw-min-h-[600px] tal:tw-object-cover tw-hidden"
                     >
                 {% endif %}
                 {% if section.settings.img_mb != blank %}
                     <img 
-                        src="{{ section.settings.img_mb | img_url: '420x420' }}" 
+                        src="{{ section.settings.img_mb | img_url: '768x768' }}" 
                         alt="{{ section.settings.img_mb.alt }}"
-                        class="image-full mobile"
+                        class="image-full md:tw-hidden tw-block"
                     >
                 {% endif %}
             </div>
@@ -146,13 +155,27 @@
                 },
             {
                 "type": "header",
-                "content": "Color"
+                "content": "Padding Heading"
             },
                 {
-                    "type": "color",
-                    "id": "bg_color",
-                    "label": "Background Content Color",
-                    "default": "#fff"
+                    "type": "range",
+                    "id": "padding_top",
+                    "min": 0,
+                    "max": 100,
+                    "step": 4,
+                    "unit": "px",
+                    "label": "Padding Top",
+                    "default": 36
+                },
+                {
+                    "type": "range",
+                    "id": "padding_bottom",
+                    "min": 0,
+                    "max": 100,
+                    "step": 4,
+                    "unit": "px",
+                    "label": "Padding Bottom",
+                    "default": 36
                 }
         ],
         "presets": [

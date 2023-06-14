@@ -8,21 +8,6 @@
     "theme_support_url": "https:\/\/support.shopify.com\/"
   },
   {
-    "name": "Custom Layout",
-    "settings": [
-      {
-        "type": "range",
-        "id": "page_container",
-        "min": 1400,
-        "max": 1600,
-        "step": 40,
-        "default": 1440,
-        "unit": "px",
-        "label": "Page Width"
-      }
-    ]
-  },
-  {
     "name": "t:settings_schema.logo.name",
     "settings": [
       {
