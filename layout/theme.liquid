@@ -219,6 +219,7 @@
     {% endstyle %}
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
+    {{ 'tailwindoutput.css' | asset_url | stylesheet_tag }}
     <link rel="stylesheet" href="{{ 'custom-base.css' | asset_url }}">
 
     {% comment %} CDN LINK {% endcomment %}

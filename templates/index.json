@@ -1,42 +1,16 @@
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Browse our latest products",
-            "heading_size": "h1"
-          }
-        },
-        "button": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify:\/\/collections\/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "button"
-      ],
+    "7e4af46a-6f6d-42d9-8695-1176ed612435": {
+      "type": "Main-banner",
       "settings": {
-        "image_overlay_opacity": 0,
-        "image_height": "large",
-        "desktop_content_position": "middle-center",
-        "show_text_box": false,
-        "desktop_content_alignment": "center",
-        "color_scheme": "accent-1",
-        "image_behavior": "none",
-        "mobile_content_alignment": "left",
-        "stack_images_on_mobile": false,
-        "show_text_below": false
+        "full_width": false,
+        "img_des": "shopify:\/\/shop_images\/305630794_3254150474841317_2516480995930605211_n.png",
+        "img_mb": "shopify:\/\/shop_images\/305630794_3254150474841317_2516480995930605211_n.png",
+        "title": "Express your fun",
+        "description": "<p>Founded in 2015 with the desire to bring happy and youthful energy to girls, Betterista focuses on designing basic items and blowing in a sweet breeze<\/p>",
+        "btn_url": "shopify:\/\/collections\/all",
+        "btn_label": "Shop Now",
+        "bg_color": "#ffffff"
       }
     },
     "81cbb258-4520-48f3-892d-18ffc5f127e9": {
@@ -230,7 +204,7 @@
     }
   },
   "order": [
-    "image_banner",
+    "7e4af46a-6f6d-42d9-8695-1176ed612435",
     "81cbb258-4520-48f3-892d-18ffc5f127e9",
     "a0b475c5-d222-430c-b690-808b9885c5ba",
     "1a15f2b8-19e3-4fcb-8423-927ae9692619",
