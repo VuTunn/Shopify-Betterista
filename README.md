@@ -23,3 +23,5 @@ npm run build
 ```
 npx tailwindcss --postcss -i ./tailwind-source.css -o ./assets/tailwindoutput.css --minify
 ```
+npx tailwindcss --postcss -i ./tailwind-source.css -o ./assets/tailwindoutput.css --watch --verbose
+```
