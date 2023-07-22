@@ -34,12 +34,33 @@
           "settings": {
             "collection": "pants"
           }
+        },
+        "8e77c939-0039-4fba-b582-9dc8988c1a9c": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "pants"
+          }
+        },
+        "2e33af56-1da0-42d2-a89a-69f29fbd8c4c": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "skirt"
+          }
+        },
+        "d1562591-7f3d-4e90-9e16-7a5d0b3d0d7e": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "dress"
+          }
         }
       },
       "block_order": [
         "template--19375695757620__81cbb258-4520-48f3-892d-18ffc5f127e9-16866257707af4317f-0",
         "template--19375695757620__81cbb258-4520-48f3-892d-18ffc5f127e9-16866257707af4317f-1",
-        "template--19375695757620__81cbb258-4520-48f3-892d-18ffc5f127e9-16866257707af4317f-2"
+        "template--19375695757620__81cbb258-4520-48f3-892d-18ffc5f127e9-16866257707af4317f-2",
+        "8e77c939-0039-4fba-b582-9dc8988c1a9c",
+        "2e33af56-1da0-42d2-a89a-69f29fbd8c4c",
+        "d1562591-7f3d-4e90-9e16-7a5d0b3d0d7e"
       ],
       "settings": {
         "title": "Collections",
@@ -53,162 +74,198 @@
         "padding_bottom": 36
       }
     },
-    "a0b475c5-d222-430c-b690-808b9885c5ba": {
-      "type": "image-with-text",
+    "dff63aed-0203-4e8b-be27-bb99a68597ce": {
+      "type": "collage",
       "blocks": {
-        "template--19375695757620__a0b475c5-d222-430c-b690-808b9885c5ba-1686625725d1a5be24-0": {
+        "template--19375695757620__dff63aed-0203-4e8b-be27-bb99a68597ce-1687875982a277ed53-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/354211813_3486147674974928_6567445222374068487_n.jpg"
+          }
+        },
+        "template--19375695757620__dff63aed-0203-4e8b-be27-bb99a68597ce-1687875982a277ed53-1": {
+          "type": "product",
+          "settings": {
+            "product": "josie-dress",
+            "second_image": true
+          }
+        },
+        "22336b7c-e638-45e1-9f4d-c5caa7b162b5": {
+          "type": "product",
+          "settings": {
+            "product": "layla-dress",
+            "second_image": true
+          }
+        }
+      },
+      "block_order": [
+        "template--19375695757620__dff63aed-0203-4e8b-be27-bb99a68597ce-1687875982a277ed53-0",
+        "template--19375695757620__dff63aed-0203-4e8b-be27-bb99a68597ce-1687875982a277ed53-1",
+        "22336b7c-e638-45e1-9f4d-c5caa7b162b5"
+      ],
+      "settings": {
+        "heading": "Back in stock!",
+        "heading_size": "h1",
+        "desktop_layout": "right",
+        "mobile_layout": "column",
+        "card_styles": "none",
+        "color_scheme": "background-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "c7fd86be-b674-4051-ad25-976e1be6972a": {
+      "type": "multicolumn",
+      "blocks": {
+        "template--19375695757620__c7fd86be-b674-4051-ad25-976e1be6972a-1687876381f100e4b6-0": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "<p>\"The leather is sourced from environmentally friendly tanneries in Italy, France, and Turkey, where Rure is based and everything is assembled by hand.\"<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "template--19375695757620__c7fd86be-b674-4051-ad25-976e1be6972a-1687876381f100e4b6-1": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "<p>\"All too often, we're forced to pick: style, or sustainability. Recently, more designers have been making environmental impact a top priority\"<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "7515b86c-8a37-4058-a48b-857dc95477f1": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "<p>Innovation being the key factor alongside aesthetic, Mlouye has brought unexpected shapes with smart details, functionality and a new luxury feel with a contemporary price point.<br\/><\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--19375695757620__c7fd86be-b674-4051-ad25-976e1be6972a-1687876381f100e4b6-0",
+        "template--19375695757620__c7fd86be-b674-4051-ad25-976e1be6972a-1687876381f100e4b6-1",
+        "7515b86c-8a37-4058-a48b-857dc95477f1"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "background-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "c4581fb0-41ad-4ade-8ea2-4b60bf139dd0": {
+      "type": "location-map",
+      "blocks": {
+        "5ecad17b-8c1c-41ed-a300-bde49c51a2cc": {
+          "type": "list",
+          "settings": {
+            "lat": "21.0083754",
+            "lng": "105.8295285",
+            "title": "Ha Noi",
+            "btn": "CONTACT",
+            "btn_url": "",
+            "postal": "100000",
+            "address": "45 Dang Van Ngu stress",
+            "phone": "0395813413",
+            "email": "betterista@gmail.com",
+            "website": "betterista.vn",
+            "instagram": "betti",
+            "name": "Betterista",
+            "type": "clother"
+          }
+        },
+        "0efe1096-4622-408a-8c81-824431c9635e": {
+          "type": "list",
+          "settings": {
+            "lat": "10.902638",
+            "lng": "106.754925",
+            "title": "Ho Chi Minh",
+            "btn": "CONTACT",
+            "btn_url": "shopify:\/\/pages\/contact",
+            "postal": "100000",
+            "address": "18 Di An stress, Binh Duong",
+            "phone": "0395813413",
+            "email": "betterista@gmail.com",
+            "website": "betterista.vn",
+            "instagram": "bettis",
+            "name": "Betterista",
+            "type": "Clother"
+          }
+        }
+      },
+      "block_order": [
+        "5ecad17b-8c1c-41ed-a300-bde49c51a2cc",
+        "0efe1096-4622-408a-8c81-824431c9635e"
+      ],
+      "settings": {
+        "section_title": "NEED SOMETHING CLOSER?",
+        "section_description": "<p>Marrying multiple learning methods into one comprehensive educational structure.  Students receive a deep foundational training prior to class to allow information to sink in. Students have tweezer and mannequin practice prior to class. (No more shaking hands picking up tweezers for the first time!) Students work through all product knowledge, contraindications, sanitation protocols and more prior to class so hands-on class time can be spent on well — hands on practice!<\/p>",
+        "section_description_mb": "<p>We are partnered with incredible salons to offer hands on courses all across North America!  Find one in your city now<\/p>",
+        "map_api": "AIzaSyC43Z_4Du4dWrxv7QBEeBb8jbcKFqVdrm8",
+        "lat_center": "21.83716268371626",
+        "lng_center": "105.8371626",
+        "no_result_text": "No locations found, please try another search.",
+        "section_title_color": "#121212",
+        "section_description_color": "#121212",
+        "store_active_bg_color": "#121212",
+        "store_active_item_color": "#ffffff"
+      }
+    },
+    "debb15c4-f4c3-4f5d-ba4c-e7264f182444": {
+      "type": "newsletter",
+      "blocks": {
+        "template--19375695757620__debb15c4-f4c3-4f5d-ba4c-e7264f182444-168927605541f9bb8a-0": {
           "type": "heading",
           "settings": {
-            "heading": "Image with text",
+            "heading": "Subscribe to our emails",
             "heading_size": "h1"
           }
         },
-        "template--19375695757620__a0b475c5-d222-430c-b690-808b9885c5ba-1686625725d1a5be24-1": {
-          "type": "text",
+        "template--19375695757620__debb15c4-f4c3-4f5d-ba4c-e7264f182444-168927605541f9bb8a-1": {
+          "type": "paragraph",
           "settings": {
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
-            "text_style": "body"
+            "text": "<p>Be the first to know about new collections and exclusive offers.<\/p>"
           }
         },
-        "template--19375695757620__a0b475c5-d222-430c-b690-808b9885c5ba-1686625725d1a5be24-2": {
-          "type": "button",
+        "template--19375695757620__debb15c4-f4c3-4f5d-ba4c-e7264f182444-168927605541f9bb8a-2": {
+          "type": "email_form",
           "settings": {
-            "button_label": "Button label",
-            "button_link": ""
           }
         }
       },
       "block_order": [
-        "template--19375695757620__a0b475c5-d222-430c-b690-808b9885c5ba-1686625725d1a5be24-0",
-        "template--19375695757620__a0b475c5-d222-430c-b690-808b9885c5ba-1686625725d1a5be24-1",
-        "template--19375695757620__a0b475c5-d222-430c-b690-808b9885c5ba-1686625725d1a5be24-2"
+        "template--19375695757620__debb15c4-f4c3-4f5d-ba4c-e7264f182444-168927605541f9bb8a-0",
+        "template--19375695757620__debb15c4-f4c3-4f5d-ba4c-e7264f182444-168927605541f9bb8a-1",
+        "template--19375695757620__debb15c4-f4c3-4f5d-ba4c-e7264f182444-168927605541f9bb8a-2"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/55661580_2278200339103007_5794016293686345728_n.jpg",
-        "height": "adapt",
-        "desktop_image_width": "medium",
-        "layout": "image_first",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
-        "content_layout": "no-overlap",
         "color_scheme": "background-1",
-        "image_behavior": "none",
-        "mobile_content_alignment": "left",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "1a15f2b8-19e3-4fcb-8423-927ae9692619": {
-      "type": "video",
-      "settings": {
-        "heading": "Video",
-        "heading_size": "h1",
-        "enable_video_looping": true,
-        "video_url": "https:\/\/www.youtube.com\/watch?v=_9VUPq3SxOc",
-        "description": "",
-        "full_width": false,
-        "color_scheme": "background-1",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "97c67c7a-76db-4182-aa3b-3817c906cabe": {
-      "type": "slideshow",
-      "blocks": {
-        "template--19375695757620__97c67c7a-76db-4182-aa3b-3817c906cabe-16866258245395c448-0": {
-          "type": "slide",
-          "settings": {
-            "heading": "Image slide",
-            "heading_size": "h1",
-            "subheading": "Tell your brand's story through images",
-            "button_label": "Button label",
-            "link": "",
-            "button_style_secondary": false,
-            "box_align": "middle-center",
-            "show_text_box": true,
-            "text_alignment": "center",
-            "image_overlay_opacity": 0,
-            "color_scheme": "background-1",
-            "text_alignment_mobile": "center"
-          }
-        },
-        "template--19375695757620__97c67c7a-76db-4182-aa3b-3817c906cabe-16866258245395c448-1": {
-          "type": "slide",
-          "settings": {
-            "heading": "Image slide",
-            "heading_size": "h1",
-            "subheading": "Tell your brand's story through images",
-            "button_label": "Button label",
-            "link": "",
-            "button_style_secondary": false,
-            "box_align": "middle-center",
-            "show_text_box": true,
-            "text_alignment": "center",
-            "image_overlay_opacity": 0,
-            "color_scheme": "background-1",
-            "text_alignment_mobile": "center"
-          }
-        },
-        "065d1a6b-aa63-469f-ac7b-22fd70739f4b": {
-          "type": "slide",
-          "settings": {
-            "heading": "Image slide",
-            "heading_size": "h1",
-            "subheading": "Tell your brand's story through images",
-            "button_label": "Button label",
-            "link": "",
-            "button_style_secondary": false,
-            "box_align": "middle-center",
-            "show_text_box": true,
-            "text_alignment": "center",
-            "image_overlay_opacity": 0,
-            "color_scheme": "background-1",
-            "text_alignment_mobile": "center"
-          }
-        }
-      },
-      "block_order": [
-        "template--19375695757620__97c67c7a-76db-4182-aa3b-3817c906cabe-16866258245395c448-0",
-        "template--19375695757620__97c67c7a-76db-4182-aa3b-3817c906cabe-16866258245395c448-1",
-        "065d1a6b-aa63-469f-ac7b-22fd70739f4b"
-      ],
-      "settings": {
-        "layout": "full_bleed",
-        "slide_height": "medium",
-        "slider_visual": "dots",
-        "auto_rotate": false,
-        "change_slides_speed": 5,
-        "image_behavior": "none",
-        "show_text_below": true,
-        "accessibility_info": "Slideshow about our brand"
-      }
-    },
-    "16866266284c4b4a36": {
-      "type": "apps",
-      "blocks": {
-        "b8cab787-0cb6-40d9-913b-ec92fd677490": {
-          "type": "shopify:\/\/apps\/instafeed-instagram-feed\/blocks\/app-block\/c447db20-095d-4a10-9725-b5977662c9d5",
-          "settings": {
-            "heading_size": 20,
-            "feed_width": 100,
-            "html_area": ""
-          }
-        }
-      },
-      "block_order": [
-        "b8cab787-0cb6-40d9-913b-ec92fd677490"
-      ],
-      "settings": {
-        "include_margins": true
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
       }
     }
   },
   "order": [
     "7e4af46a-6f6d-42d9-8695-1176ed612435",
     "81cbb258-4520-48f3-892d-18ffc5f127e9",
-    "a0b475c5-d222-430c-b690-808b9885c5ba",
-    "1a15f2b8-19e3-4fcb-8423-927ae9692619",
-    "97c67c7a-76db-4182-aa3b-3817c906cabe",
-    "16866266284c4b4a36"
+    "dff63aed-0203-4e8b-be27-bb99a68597ce",
+    "c7fd86be-b674-4051-ad25-976e1be6972a",
+    "c4581fb0-41ad-4ade-8ea2-4b60bf139dd0",
+    "debb15c4-f4c3-4f5d-ba4c-e7264f182444"
   ]
 }

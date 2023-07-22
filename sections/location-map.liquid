@@ -1,0 +1,846 @@
+{%- assign display_map = false -%}
+{%- assign onboarding = false -%}
+{%- assign bg_image = section.settings.bg_img -%}
+
+{%- if section.settings.map_api == blank and bg_image == blank -%}
+  {%- assign onboarding = true -%}
+{%- endif -%}
+{%- if section.settings.map_api != blank -%}
+  {%- assign display_map = true -%}
+{%- endif -%}
+
+<style>
+  {% comment %} CUSTOM CSS {% endcomment %}
+  .store-info.store-active {
+        background: #fff000;
+        border: 1px solid;
+  }
+  .multi-stores::-webkit-scrollbar-track
+  {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+  }
+  .multi-stores::-webkit-scrollbar
+  {
+    width: 4px;
+    background-color: #F5F5F5;
+  }
+
+  .multi-stores::-webkit-scrollbar-thumb
+  {
+    border-radius: 10px;
+    background-color: #000;
+  }
+  .multi-stores.opacity-0 {
+    opacity: 0 !important;
+  }
+  #PopUp_noResult.opacity-1 {
+    opacity: 1;
+    z-index: 5;
+  }
+  .custom-map-control-button {
+    background-color: #fff;
+    border: 0;
+    border-radius: 2px;
+    box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
+    margin: 10px;
+    padding: 0 0.5em;
+    font: 400 18px;
+    overflow: hidden;
+    height: 40px;
+    cursor: pointer;
+  }
+  .custom-map-control-button:hover {
+    background: rgb(235, 235, 235);
+  }
+  .box__map{
+    display: flex;
+  }
+  .map{
+    width: 50%;
+  }
+  .info-map{
+    display: flex;
+    flex-direction: column;
+  }
+  .search-map{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+  }
+  #PopUp_noResult {
+    position: absolute;
+    font-size: 16px;
+    border: 1px solid #ECE88D;
+    background: #FFFDCC;
+    padding: 10px;
+    color: #B64242;
+    border-radius: 5px;
+    margin: 6px;
+    opacity: 0;
+    top: 110px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: -1;
+  }
+  #PopUp_noResult::before {
+    content: " ";
+    background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTZweCIgaGVpZ2h0PSIxOHB4IiB2aWV3Qm94PSIwIDAgMTYgMTgiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+CiAgICA8dGl0bGU+R3JvdXA8L3RpdGxlPgogICAgPGcgaWQ9IlBhZ2UtMSIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9IkRlc2t0b3AtSEQiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC03MTAuMDAwMDAwLCAtMTI5My4wMDAwMDApIj4KICAgICAgICAgICAgPGcgaWQ9Ikdyb3VwIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg3MTAuMDAwMDAwLCAxMjkzLjAwMDAwMCkiPgogICAgICAgICAgICAgICAgPHBhdGggZD0iTTgsMS4xMTgwMzM5OSBMMTUuMTkwOTgzLDE1LjUgTDAuODA5MDE2OTk0LDE1LjUgTDgsMS4xMTgwMzM5OSBaIiBpZD0iVHJpYW5nbGUiIHN0cm9rZT0iI0VDRTg4RCI+PC9wYXRoPgogICAgICAgICAgICAgICAgPHBvbHlnb24gaWQ9IlRyaWFuZ2xlIiBmaWxsPSIjRkZGRENDIiBwb2ludHM9IjggMiAxNiAxOCAwIDE4Ij48L3BvbHlnb24+CiAgICAgICAgICAgIDwvZz4KICAgICAgICA8L2c+CiAgICA8L2c+Cjwvc3ZnPg==);
+    height: 18px;
+    width: 16px;
+    display: block;
+    position: absolute;
+    margin: -26px 0 0 20px;
+    z-index: 999;
+  }
+  #Close_PopUp_noResult {
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 10px;
+  }
+  #Close_PopUp_noResult svg {
+    cursor: pointer;
+  }
+  #map_google.opacity-0 .gm-style img[style="position: absolute; left: 0px; top: 0px; width: 26px; height: 37px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none; opacity: 1;"],
+  #map_google.opacity-0 .gm-style img[style="position: absolute; left: 0px; top: 0px; width: 26px; height: 37px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"] {
+    opacity: 0 !important;
+  }
+  .store-info{
+    padding: 24px 0;
+  }
+  .store-info:last-child {
+    border-bottom: unset;
+  }
+  .google-map{
+    display: flex;
+  }
+  .filter-store{
+    height: 2rem;
+    width: 8rem;
+    padding-left: 10px;
+    cursor: pointer;
+  }
+  .store-active div{
+    color: white;
+  }
+  .store-info.store-active {
+    padding: 24px 12px;
+  }
+  .store-active .action-store {
+    border: 1px solid white !important;
+  }
+  .store-active .action-store button {
+    color: white !important;
+  }
+  .action-store {
+    margin-top: 20px;
+    border-radius: 2rem;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    font-weight: 700;
+    height: 25px;
+  }
+  .action-store a {
+    width: 100%;
+  }
+  .store-active .action-store a {
+    color: #fff;
+  }
+  .action-store a:hover {
+    text-decoration: none;
+  }
+  .order1 {
+    order: 1 !important;
+  }
+  .multi-stores{
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+  }
+  .directions a:hover{
+    text-decoration: none;
+  }
+  .directions a{
+    color: white;
+    text-decoration: none;
+    position: absolute;
+    top: 2px;
+  }
+  .directions{
+    color: white;
+    background: cornflowerblue;
+    width: 8rem;
+    height: 20px;
+    border-radius: 2rem;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 10px;
+    position: relative;
+  }
+
+  .site-box-background img {
+    width: 100%;
+    height: 100%;
+  }
+  .revolution--map .revolution--section-description.is-mobile {
+    padding: 0 36px;
+  }
+  /*Desktop*/
+  @media screen and (min-width: 791px) {
+    .marker-ss {
+      padding-top: 10px;
+    }
+    .revolution--map .revolution--section-description {
+      margin-top: 16px;
+    }
+    .multi-stores{
+      max-height: 733px;
+      overflow-y: auto;
+    }
+    .shopify-section.revolution--map{
+      margin: 0 74px;
+      padding: 85px 0;
+    }
+    .info-map{
+      width: 40.625%;
+    }
+    .site-box-background {
+      width: 59.375%;
+      height: 780px;
+    }
+    #map_google {
+      width: 91.409%;
+      height: 780px;
+    }
+    #input-search-map{
+      width: 98.5294118%;
+    }
+    .is-mobile{
+      display: none;
+    }
+    .is-desktop{
+      display: block !important;
+    }
+    #input-search-map{
+      box-sizing: border-box;
+      border-radius: 3500px;
+      border: 3px solid #000000;
+      height: 60px;
+      margin: auto;
+      margin-top: 24px;
+      background: white;
+      font-style: normal;
+      font-weight: 700;
+      top: 20px;
+      font-size: 36px;
+    }
+    #input-search-map::placeholder {
+      font-style: normal;
+      font-weight: 700;
+      font-size: 30px;
+      color: #4E4D4D;
+      top: 12px;
+      position: absolute;
+    }
+    .google-map{
+      height: 780px;
+      gap: 42px;
+      margin-top: 57px;
+    }
+    .title-store{
+      font-style: normal;
+      font-weight: 700;
+      font-size: 40px;
+      line-height: 48px;
+      color: #000000;
+      text-transform: uppercase;
+    }
+    .address-store{
+      font-style: normal;
+      color: #000000;
+    }
+    .website-store{
+      font-style: normal;
+      color: #000000;
+    }
+    .store-info {
+      cursor: pointer;
+    }
+    .gm-style .gm-style-iw-c {
+      width: 330px !important;
+    }
+  }
+  @media (max-width: 960px) {
+    .shopify-section.revolution--map {
+      padding: 64px 0;
+    }
+  }
+  /*Mobile*/
+  @media screen and (max-width: 790px) {
+    .marker-ss {
+      padding-top: 5px;
+    }
+    .gmnoprint[role="menubar"] {
+      display: none;
+    }
+    .gm-svpc {
+      display: none;
+    }
+    .multi-stores{
+      max-height: 500px;
+      overflow-y: auto;
+    }
+    .google-map{
+      flex-direction: column ;
+    }
+    .info-map{
+      padding-left: 16px;
+      padding-right: 57px;
+      width: 100%;
+      order: 2;
+    }
+    .site-box-background {
+      width: 100%;
+      height: 351px;
+    }
+    #map_google {
+      width: 100%;
+      height: 351px;
+    }
+    #input-search-map{
+      width: 100%;
+    }
+    .shopify-section.revolution--map{
+      margin: 0 10px;
+      padding: 40px 0;
+    }
+    .is-desktop{
+      display: none;
+    }
+    .is-mobile{
+      display: block !important;
+    }
+    .header-title{
+      margin-top: 20px;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 40px;
+      line-height: 48px;
+      text-align: center;
+      color: #000000;
+    }
+    #input-search-map{
+      box-sizing: border-box;
+      width: 100%;
+      height: 40px;
+      border: 1px solid #000000;
+      border-radius: 3500px;
+      margin: auto;
+      margin-top: 24px;
+      background: white;
+      font-style: normal;
+      font-weight: 700;
+      top: 12px;
+      font-size: 16px;
+      line-height: 19px;
+    }
+    #PopUp_noResult {
+      top: 72px;
+    }
+    #input-search-map::placeholder {
+      font-style: normal;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 19px;
+      color: #4E4D4D;
+      top: 12px;
+      position: absolute;
+    }
+    .google-map{
+      height: 925px;
+      gap: 23px;
+      margin-top: 30px;
+    }
+    .title-store{
+      font-style: normal;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 29px;
+      color: #000000;
+      text-transform: uppercase;
+    }
+    .address-store{
+      font-style: normal;
+      color: #000000;
+    }
+    .website-store{
+      font-style: normal;
+      color: #000000;
+    }
+  }
+</style>
+
+<div id="section--{{ section.id }}" class="site-box-container container--fullscreen revolution--map">
+  {% comment %} TITLE {% endcomment %}
+  {% if section.settings.section_title != blank %}
+    <div class="header-title">
+      <h3 class="section-title tw-mb-16px text-stroke-black tw-text-yellow tw-text-center">{{ section.settings.section_title }}</h3>
+    </div>
+    {% if section.settings.section_description != blank %}
+      <div class="revolution--section-description is-desktop tw-text-center">
+        <p>{{ section.settings.section_description }}</p>
+      </div>
+      <div class="revolution--section-description is-mobile">
+        <p>{{ section.settings.section_description_mb }}</p>
+      </div>
+    {% endif %}
+  {% endif %}
+
+  <div class="search-map" style="display: none">
+    <input id="input-search-map" type="text" name="postal-code" placeholder="ENTER YOUR POSTAL CODE...">
+    <div id="PopUp_noResult">
+      <div id="Close_PopUp_noResult">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="20px" height="20px">
+          <path d="M 9.15625 6.3125 L 6.3125 9.15625 L 22.15625 25 L 6.21875 40.96875 L 9.03125 43.78125 L 25 27.84375 L 40.9375 43.78125 L 43.78125 40.9375 L 27.84375 25 L 43.6875 9.15625 L 40.84375 6.3125 L 25 22.15625 Z"/>
+        </svg>
+      </div>
+      {{ section.settings.no_result_text }}
+    </div>
+  </div>
+
+  <div class="google-map">
+    {% assign typeOptions = '' %}
+    {%- for block in section.blocks -%}
+      {% if block.settings.type == blank %} {% continue %} {% endif %}
+      {% assign typeOption = typeOption | append: ',' | append: block.settings.type %}
+    {% endfor %}
+    {% assign typeOptions = typeOption | remove_first: ',' | split: ',' | uniq %}
+
+    <div class="info-map">
+      <div class="filter_type" style="display: none">
+        <select class="filter-store" name="type" id="type_store" onclick="filterMarkers(this.value);">
+          <option value="">All Store</option>
+          {% if typeOptions != '' %}
+            {% for option in typeOptions %}
+              <option value="{{ option }}">{{ option }}</option>
+            {% endfor %}
+          {% endif %}
+        </select>
+      </div>
+
+      <div class="multi-stores" id="multi_stores">
+        {% assign order = 2 %}
+        {%- for block in section.blocks -%}
+          <div
+            onclick="getContactStore('{{ block.settings.title | remove: " " }}', 'all')"
+            class="store-info"
+            id="{{ block.settings.title | remove: " " }}"
+            style="order: {{ order }}"
+            store-title="{{ block.settings.title }}"
+            store-type="{{ block.settings.type }}"
+          >
+            <div class="title-store">{{ block.settings.title }}</div>
+            <div class="address-store">{{ block.settings.address }}</div>
+            <div class="website-store">{{ block.settings.website }}</div>
+            <div class="action-store">
+              <a href="{{ block.settings.btn_url }}">{{ block.settings.btn }}</a>
+            </div>
+          </div>
+          {% assign order = order | plus: 1 %}
+          <style>
+            .google-map:has(select[value="All Store"]) .store-info {
+              display: block;
+            }
+            .google-map:has(select[value="{{ block.settings.type }}"]) .store-info[store-type="{{ block.settings.type }}"] {
+              display: block;
+            }
+            .google-map .store-info {
+              display: none;
+            }
+          </style>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% if display_map %}
+      <div class="contact-map-holder" id="map_google"></div>
+    {% else %}
+      <div class="site-box-background" aria-hidden="true">
+        {% if onboarding %}
+          <span class="onboarding-svg">{{ 'lifestyle-1' | placeholder_svg_tag }}</span>
+        {% else %}
+          <img
+            src="{{ bg_image | img_url: '960x' }}"
+            alt="{{ section.settings.title | escape }}"
+            srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+            data-srcset="{{ bg_image | img_url: '1100x' }} 960w, {{ bg_image | img_url: '1600x' }} 1440w, {{ bg_image | img_url: '2100x' }} 1920w"
+            data-sizes="auto"
+            class="lazyload"
+          >
+
+          <noscript
+            ><span class="ll-fallback" style="background-image:url({{ bg_image | img_url: '960x' }})"></span
+          ></noscript>
+        {% endif %}
+      </div>
+    {% endif %}
+  </div>
+</div>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+<script type="application/json" data-store-json>
+  {
+      {%- for block in section.blocks -%}
+            "store{{ forloop.index }}": {
+            "lat": {{ block.settings.lat | json }},
+            "lng":  {{ block.settings.lng | json }} ,
+            "name": {{block.settings.name | json }},
+            "postal": {{block.settings.postal | json }},
+            "address": {{block.settings.address | json }},
+            "phone": {{block.settings.phone | json }},
+            "email": {{block.settings.email | json }},
+            "website": {{block.settings.website | json }},
+            "instagram": {{block.settings.instagram | json }},
+            "type" : {{block.settings.type | json }},
+            "title" : {{block.settings.title | json }}
+          }{% unless forloop.last %},{% endunless %}
+    {%- endfor -%}
+  }
+</script>
+<script>
+  (g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
+  ({key: "{{  section.settings.map_api }}", v: "weekly"});
+
+  var gmarkers = [];
+
+  function initMap() {
+    let listStore = JSON.parse(document.querySelector(('[data-store-json]')).innerHTML);
+    var lat_center = {{ section.settings.lat_center }};
+    var lng_center = {{ section.settings.lng_center }};
+    if(lat_center == "" && lng_center == "") {
+      for (let key in listStore) {
+        var marker = listStore[key];
+        if(marker.lat != "" && marker.lng != "") {
+            lat_center = marker.lat;
+            lng_center = marker.lng;
+            break;
+        }
+      }
+    }
+
+    var center = new google.maps.LatLng(lat_center, lng_center);
+    var mapOptions = {
+      zoom: 4,
+      center: center,
+    };
+
+    map = new google.maps.Map(document.getElementById('map_google'), mapOptions);
+    for (let key in listStore) {
+      var marker = listStore[key];
+      addMarker(marker)
+    }
+  }
+
+  function addMarker(marker) {
+    var contentInfoStore = '<div><strong>Store Name:</strong> ' + marker.name + ' </div>' +
+            '<div class="marker-ss"><strong>Address:</strong> ' + marker.address + ' </div>' +
+            '<div class="marker-ss"><strong>Postal Code:</strong> ' + marker.postal + ' </div>' +
+            '<div class="marker-ss"><strong>Phone:</strong> ' + marker.phone + ' </div>' +
+            '<div class="marker-ss"><strong>Email:</strong> ' + marker.email + ' </div>' +
+            '<div class="marker-ss"><strong>Website:</strong> <a href="http://'+marker.website+'" target="_blank">' + marker.website + '</a> </div>' +
+            '<div class="marker-ss"><strong>Instagram:</strong> ' + marker.instagram + ' </div>' +
+            '<div class="directions marker-ss"><a href="https://maps.google.com/maps?saddr=&daddr='+marker.address+'" target="_blank">Directions</a></div>';
+
+
+    var pos = new google.maps.LatLng(marker.lat, marker.lng);
+
+    marker = new google.maps.Marker({
+      position: pos,
+      name: marker.name,
+      type: marker.type,
+      title: marker.title,
+      postal: marker.postal,
+      map: map
+    });
+
+    marker.infowindow = new google.maps.InfoWindow({
+      content: contentInfoStore
+    });
+
+    gmarkers.push(marker);
+
+    marker.addListener("click", () => {
+      marker.infowindow.open(map, marker);
+      map.setZoom(4);
+      map.setCenter(marker.getPosition());
+    });
+  }
+
+  document.getElementById('input-search-map').addEventListener("keyup", function(event) {
+    if (event.key === "Enter" || event.keyCode == 13) {
+      searchStore(this.value, 'search')
+    }
+  });
+
+  function getContactStore(titleStore, type) {
+    var screenWidth = screen.width;
+    if((screenWidth >= 761 && type == 'desktop') || (screenWidth <= 760 && type == 'mobile') || (screenWidth >= 1 && type == 'all')) {
+      searchStore(titleStore, 'click');
+    }
+  }
+
+  function searchStore(value, event) {
+    var result = false;
+    for (let i = 0; i < gmarkers.length; i++) {
+      var marker = gmarkers[i];
+      if (result === false && (marker.name.toLowerCase().replaceAll(" ","") == value.toLowerCase().replaceAll(" ","") || marker.title.toLowerCase().replaceAll(" ","") == value.toLowerCase().replaceAll(" ",""))) {
+        map.setZoom(4);
+        map.setCenter(marker.getPosition());
+        marker.infowindow.open(map, marker);
+        document.getElementById(marker.title.replaceAll(" ", "")).classList.add('store-active');
+        if(event == 'search') {
+          document.getElementById(marker.title.replaceAll(" ", "")).classList.add('order1');
+        }
+        result = true;
+      } else if (marker.postal.toLowerCase().replaceAll(" ","") == value.toLowerCase().replaceAll(" ","")) {
+        map.setZoom(4);
+        map.setCenter(marker.getPosition());
+        marker.infowindow.open(map, marker);
+        document.getElementById(marker.title.replaceAll(" ", "")).classList.add('store-active');
+        if(event == 'search') {
+          document.getElementById(marker.title.replaceAll(" ", "")).classList.add('order1');
+        }
+        result = true;
+      } else {
+        marker.infowindow.close();
+        document.getElementById(marker.title.replaceAll(" ","")).classList.remove('store-active');
+        if(event == 'search') {
+          document.getElementById(marker.title.replaceAll(" ", "")).classList.remove('order1');
+        }
+      }
+    }
+    if (result === false) {
+      document.getElementById('multi_stores').classList.add('opacity-0');
+      document.getElementById('PopUp_noResult').classList.add('opacity-1');
+      document.getElementById('map_google').classList.add('opacity-0');
+      console.log("result NOT OK");
+    } else {
+      document.getElementById('multi_stores').classList.remove('opacity-0');
+      document.getElementById('PopUp_noResult').classList.remove('opacity-1');
+      document.getElementById('map_google').classList.remove('opacity-0');
+    }
+  }
+
+  document.getElementById('Close_PopUp_noResult').addEventListener("click", function(event) {
+    document.getElementById('multi_stores').classList.remove('opacity-0');
+    document.getElementById('PopUp_noResult').classList.remove('opacity-1');
+    document.getElementById('map_google').classList.remove('opacity-0');
+    document.getElementById('input-search-map').value = '';
+  });
+
+  {% comment %} FILTER MAP {% endcomment %}
+  function filterMarkers(typeStore){
+    for (let i = 0; i < gmarkers.length; i++) {
+      var marker = gmarkers[i];
+      if (marker.type == typeStore || typeStore.length === 0) {
+        marker.setVisible(true);
+      }
+      else {
+        marker.setVisible(false);
+      }
+    }
+  }
+
+  var e = document.getElementById("type_store");
+  function onChangeFilter() {
+    var value = e.value;
+    var text = e.options[e.selectedIndex].text;
+    console.log(value, text);
+    e.setAttribute("value", text);
+    $(".gm-ui-hover-effect").click();
+    $('.store-info').removeClass('store-active');
+  }
+  e.onchange = onChangeFilter;
+  onChangeFilter();
+
+  window.initMap = initMap;
+</script>
+
+<script
+  src="https://maps.googleapis.com/maps/api/js?key={{ section.settings.map_api }}&language=en&callback=initMap&v=weekly"
+  async
+></script>
+{% schema %}
+{
+  "name": "Revolution Map",
+  "class": "revolution--map",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "NEED SOMETHING CLOSER?"
+    },
+    {
+      "type": "richtext",
+      "id": "section_description",
+      "label": "Section Description"
+    },
+    {
+      "type": "richtext",
+      "id": "section_description_mb",
+      "label": "Section Description on Mobile"
+    },
+    {
+      "type": "header",
+      "content": "Settings google maps"
+    },
+    {
+      "type": "text",
+      "id": "map_api",
+      "label": "Google Maps API Key",
+      "info": "You'll need to register a [Google Maps API Key](http://shopify-support.krownthemes.com/article/385-generate-an-api-key-for-google-maps) to display the map."
+    },
+    {
+      "type": "text",
+      "id": "lat_center",
+      "label": "Lat Center",
+      "info": "THIS FIELD MUST BE REQUIRED"
+    },
+    {
+      "type": "text",
+      "id": "lng_center",
+      "label": "Lng Center",
+      "info": "THIS FIELD MUST BE REQUIRED"
+    },
+    {
+      "type": "text",
+      "id": "no_result_text",
+      "label": "Search No Result Message",
+      "default": "No locations found, please try another search."
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_img",
+      "label": "Image",
+      "info": "Displayed If The Map Isn't Loaded"
+    },
+    {
+      "type": "header",
+      "content": "COLOR"
+    },
+    {
+      "type": "color",
+      "id": "section_title_color",
+      "label": "Section Title Color"
+    },
+    {
+      "type": "color",
+      "id": "section_description_color",
+      "label": "Section Description Color"
+    },
+    {
+      "type": "color",
+      "id": "store_active_bg_color",
+      "label": "Store Active Background Color"
+    },
+    {
+      "type": "color",
+      "id": "store_active_item_color",
+      "label": "Store Active Item Color"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "list",
+      "name": "store",
+      "settings": [
+        {
+          "type": "text",
+          "id": "lat",
+          "label": "Lat",
+          "info": "THIS FIELD MUST BE REQUIRED"
+        },
+        {
+          "type": "text",
+          "id": "lng",
+          "label": "lng",
+          "info": "THIS FIELD MUST BE REQUIRED"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "info": "THIS FIELD MUST BE REQUIRED"
+        },
+        {
+          "type": "text",
+          "id": "btn",
+          "label": "Button Text",
+          "default": "CONTACT"
+        },
+        {
+          "type": "url",
+          "id": "btn_url",
+          "label": "Button URL"
+        },
+        {
+          "type": "text",
+          "id": "postal",
+          "label": "Poster Code",
+          "info": "THIS FIELD MUST BE REQUIRED"
+        },
+        {
+          "type": "text",
+          "id": "address",
+          "label": "Address",
+          "info": "THIS FIELD MUST BE REQUIRED"
+        },
+        {
+          "type": "text",
+          "id": "phone",
+          "label": "Phone"
+        },
+        {
+          "type": "text",
+          "id": "email",
+          "label": "Email"
+        },
+        {
+          "type": "text",
+          "id": "website",
+          "label": "Website"
+        },
+        {
+          "type": "text",
+          "id": "instagram",
+          "label": "Instagram"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Store Name"
+        },
+        {
+          "type": "text",
+          "id": "type",
+          "label": "Store Type"
+        }
+      ]
+    }
+  ],
+  "presets": [{
+    "name": "Revolution Map",
+    "category": "Store information"
+  }]
+}
+{% endschema %}
