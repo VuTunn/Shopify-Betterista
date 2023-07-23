@@ -27,7 +27,7 @@
 <div class="color-{{ section.settings.color_scheme }} gradient">
   <div class="collection-list-wrapper page-width isolate{% if show_mobile_slider %} page-width-desktop{% endif %}{% if section.settings.title == blank %} no-heading{% endif %}{% if section.settings.show_view_all == false or section.blocks.size > collections.size %} no-mobile-link{% endif %} section-{{ section.id }}-padding">
     {%- unless section.settings.title == blank -%}
-      <div class="title-wrapper-with-link{% if show_mobile_slider %} title-wrapper--self-padded-tablet-down{% else %} title-wrapper--self-padded-mobile{% endif %} title-wrapper--no-top-margin">
+      <div class="section-title text-stroke-black tw-text-yellow tal:tw-mb-32px tw-mb-16px{% if show_mobile_slider %} title-wrapper--self-padded-tablet-down{% else %} title-wrapper--self-padded-mobile{% endif %} title-wrapper--no-top-margin">
         <h2 id="SectionHeading-{{ section.id }}" class="collection-list-title inline-richtext section-title text-stroke-black tw-text-yellow">
           {{ section.settings.title }}
         </h2>
@@ -118,7 +118,7 @@
 {
   "name": "t:sections.collection-list.name",
   "tag": "section",
-  "class": "section section-collection-list",
+  "class": "section section-collection-list spacing",
   "max_blocks": 15,
   "disabled_on": {
     "groups": ["header", "footer"]

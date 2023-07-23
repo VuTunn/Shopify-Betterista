@@ -37,7 +37,8 @@ module.exports = {
       'yellow': '#FFFF00'
     },
     boxShadow: {
-      'normal': '0px 0px 16px rgba(0, 0, 0, 0.08);'
+      'normal': '0px 0px 16px rgba(0, 0, 0, 0.08);',
+      'none': 'none'
     },
     screens: {
       'sm': '576px',

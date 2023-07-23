@@ -20,7 +20,7 @@
 
 <div class="color-{{ section.settings.color_scheme }} gradient isolate">
   <div class="page-width{% if section.settings.heading == blank %} no-heading{% endif %} section-{{ section.id }}-padding">
-    <h2 class="collage-wrapper-title inline-richtext {{ section.settings.heading_size }}">{{ section.settings.heading }}</h2>
+    <h2 class="section-title text-stroke-black tw-text-yellow tal:tw-mb-32px tw-mb-16px inline-richtext {{ section.settings.heading_size }}">{{ section.settings.heading }}</h2>
     <div class="collage{% if section.settings.mobile_layout == 'collage' %} collage--mobile{% endif %}">
       {%- for block in section.blocks -%}
         <div
@@ -29,7 +29,7 @@
         >
           {%- case block.type -%}
             {%- when 'image' -%}
-              <div class="collage-card {% if section.settings.card_styles == 'none' %}global-media-settings{% else %}card-wrapper {{ section.settings.card_styles }} color-{{ settings.card_color_scheme }}{% endif %}">
+              <div class="collage-card !tw-rounded-3xl !tw-overflow-hidden {% if section.settings.card_styles == 'none' %}global-media-settings{% else %}card-wrapper {{ section.settings.card_styles }} color-{{ settings.card_color_scheme }}{% endif %}">
                 <div
                   class="media media--transparent ratio"
                   {% if block.settings.image != blank %}
@@ -201,7 +201,7 @@
 {
   "name": "t:sections.collage.name",
   "tag": "section",
-  "class": "section",
+  "class": "section spacing",
   "disabled_on": {
     "groups": ["header", "footer"]
   },

@@ -14,6 +14,11 @@
         "padding_bottom": 36
       }
     },
+    "8bd90b31-f5a7-41d2-a16c-342294e9b297": {
+      "type": "line",
+      "settings": {
+      }
+    },
     "81cbb258-4520-48f3-892d-18ffc5f127e9": {
       "type": "collection-list",
       "blocks": {
@@ -74,44 +79,9 @@
         "padding_bottom": 36
       }
     },
-    "dff63aed-0203-4e8b-be27-bb99a68597ce": {
-      "type": "collage",
-      "blocks": {
-        "template--19375695757620__dff63aed-0203-4e8b-be27-bb99a68597ce-1687875982a277ed53-0": {
-          "type": "image",
-          "settings": {
-            "image": "shopify:\/\/shop_images\/354211813_3486147674974928_6567445222374068487_n.jpg"
-          }
-        },
-        "template--19375695757620__dff63aed-0203-4e8b-be27-bb99a68597ce-1687875982a277ed53-1": {
-          "type": "product",
-          "settings": {
-            "product": "josie-dress",
-            "second_image": true
-          }
-        },
-        "22336b7c-e638-45e1-9f4d-c5caa7b162b5": {
-          "type": "product",
-          "settings": {
-            "product": "layla-dress",
-            "second_image": true
-          }
-        }
-      },
-      "block_order": [
-        "template--19375695757620__dff63aed-0203-4e8b-be27-bb99a68597ce-1687875982a277ed53-0",
-        "template--19375695757620__dff63aed-0203-4e8b-be27-bb99a68597ce-1687875982a277ed53-1",
-        "22336b7c-e638-45e1-9f4d-c5caa7b162b5"
-      ],
+    "91843cce-26b2-49c4-ab7d-36fa38788ea1": {
+      "type": "line",
       "settings": {
-        "heading": "Back in stock!",
-        "heading_size": "h1",
-        "desktop_layout": "right",
-        "mobile_layout": "column",
-        "card_styles": "none",
-        "color_scheme": "background-1",
-        "padding_top": 36,
-        "padding_bottom": 36
       }
     },
     "c7fd86be-b674-4051-ad25-976e1be6972a": {
@@ -151,20 +121,70 @@
         "7515b86c-8a37-4058-a48b-857dc95477f1"
       ],
       "settings": {
-        "title": "",
+        "title": "About Us",
         "heading_size": "h1",
         "image_width": "full",
         "image_ratio": "adapt",
         "columns_desktop": 3,
         "column_alignment": "center",
         "background_style": "none",
-        "button_label": "",
-        "button_link": "",
+        "button_label": "Go with us",
+        "button_link": "shopify:\/\/pages\/contact",
         "color_scheme": "background-1",
         "columns_mobile": "1",
-        "swipe_on_mobile": false,
+        "swipe_on_mobile": true,
         "padding_top": 36,
         "padding_bottom": 36
+      }
+    },
+    "56ee35ef-a57c-4759-9c74-163f74c8dd6d": {
+      "type": "line",
+      "settings": {
+      }
+    },
+    "dff63aed-0203-4e8b-be27-bb99a68597ce": {
+      "type": "collage",
+      "blocks": {
+        "template--19375695757620__dff63aed-0203-4e8b-be27-bb99a68597ce-1687875982a277ed53-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/354211813_3486147674974928_6567445222374068487_n.jpg"
+          }
+        },
+        "template--19375695757620__dff63aed-0203-4e8b-be27-bb99a68597ce-1687875982a277ed53-1": {
+          "type": "product",
+          "settings": {
+            "product": "josie-dress",
+            "second_image": false
+          }
+        },
+        "22336b7c-e638-45e1-9f4d-c5caa7b162b5": {
+          "type": "product",
+          "settings": {
+            "product": "layla-dress",
+            "second_image": false
+          }
+        }
+      },
+      "block_order": [
+        "template--19375695757620__dff63aed-0203-4e8b-be27-bb99a68597ce-1687875982a277ed53-0",
+        "template--19375695757620__dff63aed-0203-4e8b-be27-bb99a68597ce-1687875982a277ed53-1",
+        "22336b7c-e638-45e1-9f4d-c5caa7b162b5"
+      ],
+      "settings": {
+        "heading": "Back in stock!",
+        "heading_size": "h1",
+        "desktop_layout": "right",
+        "mobile_layout": "column",
+        "card_styles": "none",
+        "color_scheme": "background-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "070a3ba5-91b9-4c4c-afed-598df508a92b": {
+      "type": "line",
+      "settings": {
       }
     },
     "c4581fb0-41ad-4ade-8ea2-4b60bf139dd0": {
@@ -225,6 +245,11 @@
         "store_active_item_color": "#ffffff"
       }
     },
+    "8f883c3d-2571-4dff-a2c2-7cc167d27409": {
+      "type": "line",
+      "settings": {
+      }
+    },
     "debb15c4-f4c3-4f5d-ba4c-e7264f182444": {
       "type": "newsletter",
       "blocks": {
@@ -262,10 +287,15 @@
   },
   "order": [
     "7e4af46a-6f6d-42d9-8695-1176ed612435",
+    "8bd90b31-f5a7-41d2-a16c-342294e9b297",
     "81cbb258-4520-48f3-892d-18ffc5f127e9",
-    "dff63aed-0203-4e8b-be27-bb99a68597ce",
+    "91843cce-26b2-49c4-ab7d-36fa38788ea1",
     "c7fd86be-b674-4051-ad25-976e1be6972a",
+    "56ee35ef-a57c-4759-9c74-163f74c8dd6d",
+    "dff63aed-0203-4e8b-be27-bb99a68597ce",
+    "070a3ba5-91b9-4c4c-afed-598df508a92b",
     "c4581fb0-41ad-4ade-8ea2-4b60bf139dd0",
+    "8f883c3d-2571-4dff-a2c2-7cc167d27409",
     "debb15c4-f4c3-4f5d-ba4c-e7264f182444"
   ]
 }

@@ -26,15 +26,10 @@
 <div class="multicolumn color-{{ section.settings.color_scheme }} gradient{% unless section.settings.background_style == 'none' and settings.text_boxes_border_thickness > 0 or settings.text_boxes_shadow_opacity > 0 %} background-{{ section.settings.background_style }}{% endunless %}{% if section.settings.title == blank %} no-heading{% endif %}">
   <div class="page-width section-{{ section.id }}-padding isolate">
     {%- unless section.settings.title == blank -%}
-      <div class="title-wrapper-with-link title-wrapper--self-padded-mobile title-wrapper--no-top-margin">
-        <h2 class="title inline-richtext {{ section.settings.heading_size }}">
+      <div class="title-wrapper-with-link title-wrapper--self-padded-mobile title-wrapper--no-top-margin tw-text-center tw-justify-center">
+        <h2 class="title inline-richtext section-title text-stroke-black tw-text-yellow {{ section.settings.heading_size }}">
           {{ section.settings.title }}
         </h2>
-        {%- if section.settings.button_label != blank and show_mobile_slider -%}
-          <a href="{{ section.settings.button_link }}" class="link underlined-link large-up-hide">
-            {{- section.settings.button_label | escape -}}
-          </a>
-        {%- endif -%}
       </div>
     {%- endunless -%}
     <slider-component class="slider-mobile-gutter">
@@ -163,10 +158,10 @@
         </div>
       {%- endif -%}
     </slider-component>
-    <div class="center{% if show_mobile_slider %} small-hide medium-hide{% endif %}">
+    <div class="center">
       {%- if section.settings.button_label != blank -%}
         <a
-          class="button button--primary"
+          class="cursive tal:tw-py-8px tal:tw-px-16px tw-mt-16px tw-p-8px tw-inline-block tw-border-solid tw-border-black tw-border tw-rounded-3xl tw-transition-colors tw-duration-500 tw-bg-yellow tw-text-black hover:tw-text-white hover:tw-bg-black"
           {% if section.settings.button_link == blank %}
             role="link" aria-disabled="true"
           {% else %}
@@ -183,7 +178,7 @@
 {% schema %}
 {
   "name": "t:sections.multicolumn.name",
-  "class": "section",
+  "class": "section spacing",
   "tag": "section",
   "disabled_on": {
     "groups": ["header", "footer"]

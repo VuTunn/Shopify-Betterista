@@ -22,7 +22,7 @@
         {%- when '@app' -%}
           {% render block %}
         {%- when 'heading' -%}
-          <h2 class="inline-richtext {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
+          <h2 class="inline-richtext section-title text-stroke-black tw-text-yellow {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
             {{ block.settings.heading }}
           </h2>
         {%- when 'paragraph' -%}
@@ -32,12 +32,12 @@
             {% form 'customer', class: 'newsletter-form' %}
               <input type="hidden" name="contact[tags]" value="newsletter">
               <div class="newsletter-form__field-wrapper">
-                <div class="field">
+                <div class="field !tw-rounded-[32px] !tw-overflow-hidden">
                   <input
                     id="NewsletterForm--{{ section.id }}"
                     type="email"
                     name="contact[email]"
-                    class="field__input"
+                    class="field__input focus:!tw-shadow-none focus:!tw-outline-0"
                     value="{{ form.email }}"
                     aria-required="true"
                     autocorrect="off"
