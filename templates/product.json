@@ -8,11 +8,6 @@
           "settings": {
           }
         },
-        "judgeme_preview_badge_product_page_d9113247": {
-          "type": "shopify:\/\/apps\/judge-me-product-reviews\/blocks\/preview_badge\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {
-          }
-        },
         "price": {
           "type": "price",
           "settings": {
@@ -50,7 +45,6 @@
       },
       "block_order": [
         "title",
-        "judgeme_preview_badge_product_page_d9113247",
         "price",
         "variant_picker",
         "quantity_selector",
@@ -79,36 +73,36 @@
         "template--19375695921460__1dabfdae-fb09-4fcb-9e86-c0bea6cc42a0-1686626945aaa7a456-0": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Collapsible row",
+            "heading": "Package",
             "icon": "box",
-            "row_content": "",
+            "row_content": "<p>Service providers work accordingly to the clients so the type of project you are setting in decides your career. I have seen people with ton of experience in development work in support projects. So,, dont just go for the packaging but also analyze the inner working of a company<\/p>",
             "page": ""
           }
         },
         "template--19375695921460__1dabfdae-fb09-4fcb-9e86-c0bea6cc42a0-1686626945aaa7a456-1": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Collapsible row",
+            "heading": "Shipping",
             "icon": "truck",
-            "row_content": "",
+            "row_content": "<p>Even though I’m not a shopaholic, I do enjoy the activity itself. I like wandering around shopping malls and trying on various kinds of clothes with my friends. But to be honest, I do window shopping most of the time because I cannot afford all of those snazzy products.<\/p>",
             "page": ""
           }
         },
         "template--19375695921460__1dabfdae-fb09-4fcb-9e86-c0bea6cc42a0-1686626945aaa7a456-2": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Collapsible row",
+            "heading": "Discount",
             "icon": "price_tag",
-            "row_content": "",
+            "row_content": "<p>The discount rate refers to<strong>the rate of interest that is applied to future cash flows of an investment to calculate its present value<\/strong>. It is the rate of return that companies or investors expect on their investment. An investment's net present value computed through discounting reveals its viability.<\/p>",
             "page": ""
           }
         },
         "template--19375695921460__1dabfdae-fb09-4fcb-9e86-c0bea6cc42a0-1686626945aaa7a456-3": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Collapsible row",
-            "icon": "lipstick",
-            "row_content": "",
+            "heading": "Motivation",
+            "icon": "heart",
+            "row_content": "<p>Don't give up and success will come to you, we are always there to take care and listen to you. From the little things to the big things, we have always been learning to keep moving forward<\/p>",
             "page": ""
           }
         }
@@ -121,7 +115,7 @@
       ],
       "settings": {
         "caption": "",
-        "heading": "Collapsible content",
+        "heading": "All about the product",
         "heading_size": "h1",
         "heading_alignment": "center",
         "layout": "none",
@@ -132,22 +126,6 @@
         "desktop_layout": "image_second",
         "padding_top": 36,
         "padding_bottom": 36
-      }
-    },
-    "judgeme_section_review_widget_458a": {
-      "type": "apps",
-      "blocks": {
-        "judgeme_review_widget_5b59549f": {
-          "type": "shopify:\/\/apps\/judge-me-product-reviews\/blocks\/review_widget\/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-          "settings": {
-          }
-        }
-      },
-      "block_order": [
-        "judgeme_review_widget_5b59549f"
-      ],
-      "settings": {
-        "include_margins": true
       }
     },
     "related-products": {
@@ -171,7 +149,6 @@
   "order": [
     "main",
     "1dabfdae-fb09-4fcb-9e86-c0bea6cc42a0",
-    "judgeme_section_review_widget_458a",
     "related-products"
   ]
 }

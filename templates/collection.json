@@ -26,6 +26,11 @@
         "padding_bottom": 36
       }
     },
+    "07e3d487-8583-4bc3-bba7-68a7bd6a8835": {
+      "type": "line",
+      "settings": {
+      }
+    },
     "7b9c248a-bda6-4f14-8157-1bd9203c4688": {
       "type": "newsletter",
       "blocks": {
@@ -64,6 +69,7 @@
   "order": [
     "banner",
     "product-grid",
+    "07e3d487-8583-4bc3-bba7-68a7bd6a8835",
     "7b9c248a-bda6-4f14-8157-1bd9203c4688"
   ]
 }
