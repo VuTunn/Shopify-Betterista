@@ -47,6 +47,9 @@ module.exports = {
       'md': '768px',
       // => @media (min-width: 1024px) { ... }
 
+      'tab': '990px',
+      // => @media (min-width: 990px) { ... }
+
       'tal': '1024px',
       // => @media (min-width: 1024px) { ... }
 

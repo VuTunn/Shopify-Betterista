@@ -270,7 +270,7 @@
 
                         <td class="cart-item__quantity" role="cell" headers="CartDrawer-ColumnQuantity">
                           <div class="cart-item__quantity-wrapper">
-                            <quantity-input class="quantity cart-quantity">
+                            <quantity-input class="quantity cart-quantity tw-rounded-[32px] tw-overflow-hidden">
                               <button class="quantity__button no-js-hidden" name="minus" type="button">
                                 <span class="visually-hidden">
                                   {{- 'products.product.quantity.decrease' | t: product: item.product.title | escape -}}
@@ -419,7 +419,7 @@
           <button
             type="submit"
             id="CartDrawer-Checkout"
-            class="cart__checkout-button button"
+            class="cart__checkout-button cursive tal:tw-py-8px tal:tw-px-16px tw-mt-16px tw-p-8px tw-inline-block tw-border-solid tw-border-black tw-border tw-rounded-3xl tw-transition-colors tw-duration-500 tw-bg-yellow tw-text-black hover:tw-text-white hover:tw-bg-black"
             name="checkout"
             form="CartDrawer-Form"
             {% if cart == empty %}

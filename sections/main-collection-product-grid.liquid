@@ -53,7 +53,6 @@
                     </option>
                   {%- endfor -%}
                 </select>
-                {% render 'icon-caret' %}
               </div>
             </div>
             <noscript>
@@ -140,6 +139,7 @@
               id="product-grid"
               data-id="{{ section.id }}"
               class="
+                tw-mt-24px
                 grid product-grid grid--{{ section.settings.columns_mobile }}-col-tablet-down
                 grid--{{ section.settings.columns_desktop }}-col-desktop
               "
