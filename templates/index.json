@@ -225,11 +225,30 @@
             "name": "Betterista",
             "type": "Clother"
           }
+        },
+        "6c38df19-e27b-422c-a244-54e7bf04c7c1": {
+          "type": "list",
+          "settings": {
+            "lat": "10.902638",
+            "lng": "10.902638",
+            "title": "Da Nang",
+            "btn": "CONTACT",
+            "btn_url": "",
+            "postal": "",
+            "address": "",
+            "phone": "",
+            "email": "",
+            "website": "",
+            "instagram": "",
+            "name": "",
+            "type": ""
+          }
         }
       },
       "block_order": [
         "5ecad17b-8c1c-41ed-a300-bde49c51a2cc",
-        "0efe1096-4622-408a-8c81-824431c9635e"
+        "0efe1096-4622-408a-8c81-824431c9635e",
+        "6c38df19-e27b-422c-a244-54e7bf04c7c1"
       ],
       "settings": {
         "section_title": "NEED SOMETHING CLOSER?",

@@ -330,8 +330,9 @@
                     >
                       <div class="{% if filter_type == 'horizontal' %}facets__header{% else %}facets__header-vertical{% endif %}">
                         {%- assign max_price_amount = filter.range_max | money | strip_html | escape -%}
+                        {%- assign min_price_amount = filter.range_min | money | strip_html | escape -%}
                         <span class="facets__selected">
-                          {{- 'products.facets.max_price' | t: price: max_price_amount -}}
+                          {{- 'products.facets.max_price' | t: price: min_price_amount -}} 
                         </span>
                         {%- if filter_type != 'vertical' -%}
                           <facet-remove>
