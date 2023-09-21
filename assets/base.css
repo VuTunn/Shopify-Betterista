@@ -3120,3 +3120,10 @@ input:-webkit-autofill:active{
 .globo-swatch-product-detail .swatch--gl li .globo-style--button {
   border-radius: 32px;
 }
+
+select#SortBy::-ms-expand {
+  display: none;
+}
+select#SortBy {
+  background-image: unset !important;
+}

@@ -6,7 +6,7 @@
         "full_width": false,
         "img_des": "shopify:\/\/shop_images\/305630794_3254150474841317_2516480995930605211_n.png",
         "img_mb": "shopify:\/\/shop_images\/305630794_3254150474841317_2516480995930605211_n.png",
-        "title": "Express your fun",
+        "title": "test",
         "description": "<p>Founded in 2015 with the desire to bring happy and youthful energy to girls, Betterista focuses on designing basic items and blowing in a sweet breeze<\/p>",
         "btn_url": "shopify:\/\/collections\/all",
         "btn_label": "Shop Now",
@@ -225,30 +225,11 @@
             "name": "Betterista",
             "type": "Clother"
           }
-        },
-        "6c38df19-e27b-422c-a244-54e7bf04c7c1": {
-          "type": "list",
-          "settings": {
-            "lat": "10.902638",
-            "lng": "10.902638",
-            "title": "Da Nang",
-            "btn": "CONTACT",
-            "btn_url": "",
-            "postal": "",
-            "address": "",
-            "phone": "",
-            "email": "",
-            "website": "",
-            "instagram": "",
-            "name": "",
-            "type": ""
-          }
         }
       },
       "block_order": [
         "5ecad17b-8c1c-41ed-a300-bde49c51a2cc",
-        "0efe1096-4622-408a-8c81-824431c9635e",
-        "6c38df19-e27b-422c-a244-54e7bf04c7c1"
+        "0efe1096-4622-408a-8c81-824431c9635e"
       ],
       "settings": {
         "section_title": "NEED SOMETHING CLOSER?",

@@ -2,6 +2,7 @@
   "current": {
     "logo": "shopify:\/\/shop_images\/67819425_2370257749897265_1897770907926003712_n_1-removebg-preview_1.png",
     "logo_width": 180,
+    "favicon": "shopify:\/\/shop_images\/Group.svg",
     "colors_solid_button_labels": "#ffffff",
     "colors_accent_1": "#121212",
     "gradient_accent_1": "",
@@ -148,6 +149,18 @@
       "4571859552318407796": {
         "type": "shopify:\/\/apps\/glo-color-swatch-variant-image\/blocks\/app-embed-block\/4394f710-096c-4021-bbde-8ebb26057c11",
         "disabled": false,
+        "settings": {
+        }
+      },
+      "2369874457889669609": {
+        "type": "shopify:\/\/apps\/rebolt-bundle-products\/blocks\/app-embed\/0a9e67ff-0413-4374-921d-e70fb17c7dbc",
+        "disabled": false,
+        "settings": {
+        }
+      },
+      "1530068250781986104": {
+        "type": "shopify:\/\/apps\/fast-bundle\/blocks\/fast_bundle\/9e87fbe2-9041-4c23-acf5-322413994cef",
+        "disabled": true,
         "settings": {
         }
       }
