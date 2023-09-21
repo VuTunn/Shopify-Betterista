@@ -5,18 +5,18 @@ Run: npm install
 Update: tailwind.config.js
 Use tw- for class prefixing
 ```
-#### Hướng dẫn sử dụng
+#### User Manual
 ```
-Các class phải thêm tiền tố tw- prefix https://tailwindcss.com/docs/configuration#prefix
-Tailwind sẽ output ra file /assets/tailwindoutput.css, cần thêm vào trong theme.liquid
+Classes must have a prefix tw- prefix https://tailwindcss.com/docs/configuration#prefix
+Tailwind will output to file /assets/tailwindoutput.css, cần thêm vào trong theme.liquid
 ```
 #### Build tailwind
 ```
-npm run watch
+npm run build
 ```
 #### Watch tailwind
 ```
-npm run build
+npm run watch
 ```
 
 #### Run tailwind
